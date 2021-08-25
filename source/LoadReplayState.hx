@@ -47,8 +47,8 @@ class LoadReplayState extends MusicBeatState
         controlsStrings.sort(sortByDate);
 
         addWeek(['Bopeebo', 'Fresh', 'Dadbattle'], 1, ['dad']);
-        addWeek(['Spookeez', 'South', 'Monster'], 2, ['spooky']);
-        addWeek(['Pico', 'Philly', 'Blammed'], 3, ['pico']);
+        addWeek(['Poopeez', 'South', 'Monster'], 2, ['spooky']);
+        addWeek(['Percy', 'Philly', 'Blammed'], 3, ['pico']);
 
         addWeek(['Satin-Panties', 'High', 'Milf'], 4, ['mom']);
         addWeek(['Cocoa', 'Eggnog', 'Winter-Horrorland'], 5, ['parents-christmas', 'parents-christmas', 'monster-christmas']);

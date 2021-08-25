@@ -43,7 +43,7 @@ class GameplayCustomizeState extends MusicBeatState
     public override function create() {
         #if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Customizing Gameplay Modules", null);
+		DiscordClient.changePresence("Being a Sussy Baka", null);
 		#end
 
         sick = new FlxSprite().loadGraphic(Paths.image('sick','shared'));

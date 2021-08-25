@@ -29,8 +29,8 @@ class StoryMenuState extends MusicBeatState
 		return [
 			['Tutorial'],
 			['Bopeebo', 'Fresh', 'Dad Battle'],
-			['Spookeez', 'South', "Monster"],
-			['Pico', 'Philly Nice', "Blammed"],
+			['Poopeez', 'South', "Monster"],
+			['Percy', 'Philly Nice', "Blammed"],
 			['Satin Panties', "High", "Milf"],
 			['Cocoa', 'Eggnog', 'Winter Horrorland'],
 			['Senpai', 'Roses', 'Thorns']
@@ -92,7 +92,7 @@ class StoryMenuState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Story Mode Menu", null);
+		DiscordClient.changePresence("DD FF JJ KK", null);
 		#end
 
 		transIn = FlxTransitionableState.defaultTransIn;
@@ -267,24 +267,8 @@ class StoryMenuState extends MusicBeatState
 					{
 						changeWeek(1);
 					}
-
-					if (gamepad.pressed.DPAD_RIGHT)
-						rightArrow.animation.play('press')
-					else
-						rightArrow.animation.play('idle');
-					if (gamepad.pressed.DPAD_LEFT)
-						leftArrow.animation.play('press');
-					else
-						leftArrow.animation.play('idle');
-
-					if (gamepad.justPressed.DPAD_RIGHT)
-					{
-						changeDifficulty(1);
-					}
-					if (gamepad.justPressed.DPAD_LEFT)
-					{
-						changeDifficulty(-1);
-					}
+					// removed difficulty thingies cause
+					// they arent't gonna be used wew
 				}
 
 				if (FlxG.keys.justPressed.UP)
@@ -296,21 +280,8 @@ class StoryMenuState extends MusicBeatState
 				{
 					changeWeek(1);
 				}
-
-				if (controls.RIGHT)
-					rightArrow.animation.play('press')
-				else
-					rightArrow.animation.play('idle');
-
-				if (controls.LEFT)
-					leftArrow.animation.play('press');
-				else
-					leftArrow.animation.play('idle');
-
-				if (controls.RIGHT_P)
-					changeDifficulty(1);
-				if (controls.LEFT_P)
-					changeDifficulty(-1);
+				// removed difficulty thingies cause
+					// they arent't gonna be used wew
 			}
 
 			if (controls.ACCEPT)
@@ -381,7 +352,10 @@ class StoryMenuState extends MusicBeatState
 
 	function changeDifficulty(change:Int = 0):Void
 	{
-		curDifficulty += change;
+		// we only intend to use normal difficulty
+		// for all the mod changes
+		// so just set difficulty to 1 lol
+		curDifficulty = 1;
 
 		if (curDifficulty < 0)
 			curDifficulty = 2;
