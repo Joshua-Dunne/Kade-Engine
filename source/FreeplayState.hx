@@ -179,7 +179,7 @@ class FreeplayState extends MusicBeatState
 
 		 #if desktop
 		 // Updating Discord Rich Presence
-		 DiscordClient.changePresence("In the Freeplay Menu", null);
+		 DiscordClient.changePresence("Taking a Shit", null);
 		 #end
 
 		var isDebug:Bool = false;
@@ -339,14 +339,6 @@ class FreeplayState extends MusicBeatState
 			{
 				changeSelection(1);
 			}
-			if (gamepad.justPressed.DPAD_LEFT)
-			{
-				changeDiff(-1);
-			}
-			if (gamepad.justPressed.DPAD_RIGHT)
-			{
-				changeDiff(1);
-			}
 
 			//if (gamepad.justPressed.X && !openedPreview)
 				//openSubState(new DiffOverview());
@@ -389,13 +381,6 @@ class FreeplayState extends MusicBeatState
 			}
 
 			previewtext.text = "Rate: " + rate + "x";
-		}
-		else
-		{
-			if (FlxG.keys.justPressed.LEFT)
-				changeDiff(-1);
-			if (FlxG.keys.justPressed.RIGHT)
-				changeDiff(1);
 		}
 		
 					
@@ -465,7 +450,7 @@ class FreeplayState extends MusicBeatState
 		if (!songs[curSelected].diffs.contains(CoolUtil.difficultyFromInt(curDifficulty + change)))
 			return;
 
-		curDifficulty += change;
+		curDifficulty = 1;
 
 		if (curDifficulty < 0)
 			curDifficulty = 2;

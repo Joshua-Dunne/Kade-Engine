@@ -2,10 +2,10 @@ Tutorial:gf:0
 Bopeebo:dad:1
 Fresh:dad:1
 Dad Battle:dad:1
-Spookeez:spooky:2
+Poopeez:spooky:2
 South:spooky:2
 Monster:monster:2
-Pico:pico:3
+Percy:pico:3
 Philly Nice:pico:3
 Blammed:pico:3
 Satin Panties:mom:4

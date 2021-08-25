@@ -49,6 +49,20 @@ class TitleState extends MusicBeatState
 
 	var curWacky:Array<String> = [];
 
+	// too lazy to do text file loading
+	// so do this ugly implementation instead lol
+	var curWackier:Array<String> = [];
+	var wackyStrings:Array<Array<String>> = [
+		["you", "just", "got", "beaned", "friggin moron"],
+		["somebody", "toucha", "my", "spaghet", "omg"],
+		["kirby", "sixty four", "crystal", "shards", "goty"],
+		["sitaleine", "potatoleine", "keychaineleine", "pobetaleine", "adeleine"],
+		["haaaaaank!", "the sweet", "and sour", "sauce", "haaaaaaaaaank!!"],
+		["ayo", "the", "pizza", "here", "my ears burn..."],
+		["week", "seven", "coming", "never", "lmao"],
+		["you stupid", "no i not", "whats", " nine plus ten", "twenty one"],
+	];
+
 	var wackyImage:FlxSprite;
 
 	override public function create():Void
@@ -83,6 +97,7 @@ class TitleState extends MusicBeatState
 
 
 		curWacky = FlxG.random.getObject(getIntroTextShit());
+		curWackier = FlxG.random.getObject(wackyStrings);
 
 		trace('hello');
 
@@ -384,10 +399,10 @@ class TitleState extends MusicBeatState
 			case 0:
 				deleteCoolText();
 			case 1:
-				createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
+				createCoolText([curWackier[0], curWackier[1], curWackier[2], curWackier[3], ]);
 			// credTextShit.visible = true;
 			case 3:
-				addMoreText('present');
+				addMoreText(curWackier[4]);
 			// credTextShit.text += '\npresent...';
 			// credTextShit.addText();
 			case 4:

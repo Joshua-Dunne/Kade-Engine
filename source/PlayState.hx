@@ -1866,7 +1866,7 @@ class PlayState extends MusicBeatState
 			}
 
 			#if desktop
-			DiscordClient.changePresence("PAUSED on "
+			DiscordClient.changePresence("CONTEMPLATING LIFE on "
 				+ SONG.song
 				+ " ("
 				+ storyDifficultyText
@@ -2746,7 +2746,7 @@ class PlayState extends MusicBeatState
 
 				#if desktop
 				// Game Over doesn't get his own variable because it's only used here
-				DiscordClient.changePresence("GAME OVER -- "
+				DiscordClient.changePresence("I FUCKING DIED -- "
 					+ SONG.song
 					+ " ("
 					+ storyDifficultyText
@@ -2789,7 +2789,7 @@ class PlayState extends MusicBeatState
 
 				#if desktop
 				// Game Over doesn't get his own variable because it's only used here
-				DiscordClient.changePresence("GAME OVER -- "
+				DiscordClient.changePresence("BLUE BALL'D -- "
 					+ SONG.song
 					+ " ("
 					+ storyDifficultyText

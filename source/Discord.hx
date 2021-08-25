@@ -1,5 +1,6 @@
 package;
 
+#if windows
 import Sys.sleep;
 import discord_rpc.DiscordRpc;
 
@@ -36,7 +37,7 @@ class DiscordClient
 	static function onReady()
 	{
 		DiscordRpc.presence({
-			details: "In the Menus",
+			details: "Preparing to Meme",
 			state: null,
 			largeImageKey: 'icon',
 			largeImageText: "fridaynightfunkin"
@@ -85,3 +86,4 @@ class DiscordClient
 		//trace('Discord RPC Updated. Arguments: $details, $state, $smallImageKey, $hasStartTimestamp, $endTimestamp');
 	}
 }
+#end
