@@ -5,7 +5,9 @@
 
 ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/KadeDev/Kade-Engine/latest) ![GitHub repo size](https://img.shields.io/github/repo-size/KadeDev/Kade-Engine) ![Lines of code](https://img.shields.io/tokei/lines/github/KadeDev/Kade-Engine) ![Supported platforms](https://img.shields.io/badge/supported%20platforms-windows%2C%20macOS%2C%20linux%2C%20html5-blue) ![GitHub all releases](https://img.shields.io/github/downloads/KadeDev/Kade-Engine/total) ![GitHub](https://img.shields.io/github/license/KadeDev/Kade-Engine) ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/KadeDev/Kade-Engine?include_prereleases&label=latest%20version) 
 
-# Friday Night Funkin': Kade Engine
+# Friday Night Funkin': SHITMOD EDITION
+
+OKAY LISTEN UP, THIS IS JUST KADE ENGINE BUT WITH EVER SO SLIGHT TWEAKS TO DISCORD STATUS MESSAGES AND OTHER MINOR SHIT LIKE CHANGING SONG NAMES INTERNALLY SO I COULD HAVE PICO NAMED PERCY AND RENAME SPOOKEEZ TO POOPEEZ BECAUSE I HAVE THE HUMOUR OF A TEN YEAR OLD. THANKS OKAY BYE!!!
 
 ### If you want to contribute to Kade Engine, read [this](https://github.com/KadeDev/Kade-Engine/blob/stable/CONTRIBUTING.md) first.
 ### If you want to build Kade Engine, read [this](https://github.com/KadeDev/Kade-Engine/blob/stable/docs/building.md).
