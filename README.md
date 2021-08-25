@@ -35,42 +35,7 @@ Links: **[GameBanana mod page](https://gamebanana.com/gamefiles/16761) ⋅ [play
 ## Website ([KadeDev.github.io/kade-engine/](https://KadeDev.github.io/Kade-Engine/))
 If you're looking for documentation, changelogs, or guides, you can find those on the Kade Engine website.
 
-# Previews ([skip](#features))
-
-![Title Screen](art/readme/KadeEngineTitleScreen.png)
-
-![Week Select](art/readme/KadeEngineWeekSelect.png)
-
-![Freeplay](art/readme/KadeEngineFreeplay.png)
-
-![Options](art/readme/KadeEngineOptions.png)
-
-![Senpai Gameplay (Hard, Upscroll)](art/readme/KadeEnginePixelGameplay.png)
-
-![Roses Dialogue](art/readme/KadeEngineDialogue.png)
-
-![Pause Screen](art/readme/KadeEnginePauseScreen.png)
-
-![Results Screen](art/readme/KadeEngineResultsScreen.png)
-
-![Replay Loader](art/readme/KadeEngineReplayLoader.png)
-
-# Features
-
- - **New Input System**
-	 - An improved input system, similar to Quaver or Etterna, with less delays, less dropped inputs and other improvements.
- - **More information during gameplay**
-	 - While you're playing, we show you information about how you're doing, such as your accuracy, combo break count, notes per second, and your grade/rating.
- - **Customizable keybinds**
-	 - Instead of being forced to use WASD and the arrow keys, you can set any keybinds you want!
- - **Replays** (in beta)
-	 - Have you ever gotten a crazy score but didn't record? The replay system solves that: it automatically saves a "replay" of your gameplay every time you complete a song, which you can play back inside of the game. 
-	 - Replays just store information about what you're doing, they don't actually record the screen -- so they take up way less space on your disk than videos.
- - **Audio offset**
-	 - If your speakers or headphones are delayed, you can set an offset in the options menu to line the game up with the delay and play with synced audio like intended!
- - **And much, much more!**
-	 - There's so much more in store than just what's listed here! If you can imagine a quality of life feature, it's probably
-	 either already included in Kade Engine or is being worked on!
+OKAY ON SECOND THOUGHT YOU DON'T NEED TO SEE THIS SAME PREVIEW AND FEATURE SHIT, GO TO THE ORIGINAL [KADE ENGINE GITHUB](https://KadeDev.github.io/Kade-Engine/) TO SEE THEM IF YOU REALLY WANT TO
 
 # Credits
 ### Friday Night Funkin'
