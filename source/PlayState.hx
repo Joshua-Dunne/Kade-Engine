@@ -4543,11 +4543,63 @@ class PlayState extends MusicBeatState
 			luaModchart.setVar('curStep', curStep);
 			luaModchart.executeState('stepHit', [curStep]);
 		}
-
-
-	
 		#end
-	
+
+		if(curSong.toLowerCase() == 'dad battle')
+			{
+				if(curStep == 992)
+					{
+						remove(dad); // remove whatever character exists
+						dad = new Character(dad.x, dad.y, 'whittyCrazy'); // replace them with another
+						add(dad); // add new character
+					}
+			}
+		// philly uses a lot of different characters,
+		// so y values are adjusted to fit them onto the ground somewhat nicely
+		// could easily just not do this but w/e
+		else if (curSong.toLowerCase() == 'philly nice') { // if the song is philly
+			switch (curStep) { // wait for a certain step
+				case 96:
+					remove(dad); // remove whatever character exists
+					dad = new Character(dad.x, dad.y - 300, 'whitty'); // replace them with another -- -300
+					add(dad); // add new character
+				case 160:
+					remove(dad); // remove whatever character exists
+					dad = new Character(dad.x, dad.y + 200, 'spooky'); // replace them with another -- -100
+					add(dad); // add new character
+				case 416:
+					remove(dad); // remove whatever character exists
+					dad = new Character(dad.x, dad.y + 100, 'pico'); // replace them with another -- 0
+					add(dad); // add new character
+				case 672:
+					remove(dad); // remove whatever character exists
+					dad = new Character(dad.x, dad.y - 300, 'dad'); // replace them with another -- -300
+					add(dad); // add new character
+				case 800:
+					remove(dad); // remove whatever character exists
+					dad = new Character(dad.x, dad.y + 300, 'pico'); // replace them with another -- 0
+					add(dad); // add new character
+				case 928:
+					remove(dad);
+					// hex needs to be moved towards bf because of sprite placements
+					dad = new Character(dad.x + 100, dad.y - 200, 'hexvirus');
+					add(dad);
+			}
+		}
+		// swap pico out for the spooky kids during their section in blammed
+		else if (curSong.toLowerCase() == 'blammed') { // if the song is blammed
+			switch (curStep) { // wait for a certain step
+			case 383:
+				remove(dad); // remove whatever character exists
+				dad = new Character(dad.x, dad.y - 100, 'spooky'); // replace them with spooky kids
+				// -100 on .y is to re-adjust original dad position so they fit on screen better
+				add(dad); // add spooky kids
+			case 512: // code is more or less the same below, except for the +100 on .y to put pico back
+				remove(dad);
+				dad = new Character(dad.x, dad.y + 100, 'pico');
+				add(dad);
+			}
+		}
 	}
 
 	var lightningStrikeBeat:Int = 0;
@@ -4620,10 +4672,10 @@ class PlayState extends MusicBeatState
 		}
 		else
 		{
-	
+
 			iconP1.setGraphicSize(Std.int(iconP1.width + 4));
 			iconP2.setGraphicSize(Std.int(iconP2.width + 4));
-	
+
 			iconP1.updateHitbox();
 			iconP2.updateHitbox();
 		}

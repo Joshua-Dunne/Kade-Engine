@@ -378,6 +378,45 @@ class Character extends FlxSprite
 				loadOffsetFile(curCharacter);
 
 				playAnim('idle');
+
+			// used in dad battle for the last section
+			// thank you whitty mod for being public access
+			case 'whittyCrazy': // whitty crazy (ballistic)
+				tex = Paths.getSparrowAtlas('WhittyCrazy', 'shared', true);
+				frames = tex;
+				animation.addByPrefix('idle', 'Whitty idle dance', 24);
+				animation.addByPrefix('singUP', 'Whitty Sing Note UP', 24);
+				animation.addByPrefix('singRIGHT', 'whitty sing note right', 24);
+				animation.addByPrefix('singDOWN', 'Whitty Sing Note DOWN', 24);
+				animation.addByPrefix('singLEFT', 'Whitty Sing Note LEFT', 24);
+
+				// moved the offsets to a file so I could re-use this function :)
+				loadOffsetFile(curCharacter);
+
+			// next 2 characters are for philly nice jokes lol funny
+			case 'whitty': // whitty reg (lofight,overhead)
+				frames = Paths.getSparrowAtlas('WhittySprites', 'shared', true);
+				animation.addByPrefix('idle', 'Idle', 24, false);
+				animation.addByPrefix('singUP', 'Sing Up', 24, false);
+				animation.addByPrefix('singRIGHT', 'Sing Right', 24, false);
+				animation.addByPrefix('singDOWN', 'Sing Down', 24, false);
+				animation.addByPrefix('singLEFT', 'Sing Left', 24, false);
+
+				// moved the offsets to a file so I could re-use this function :)
+				loadOffsetFile(curCharacter);
+
+				playAnim('idle');
+
+			case 'hexvirus': // glitcher hex sprites wew
+				// rest in peace public hex mod repo
+				frames = Paths.getSparrowAtlas('Hex_Virus', 'shared', true);
+				animation.addByPrefix('idle', 'Hex crazy idle', 24, false);
+				animation.addByPrefix('singUP', 'Hex crazy up', 24, false);
+				animation.addByPrefix('singRIGHT', 'Hex crazy right', 24, false);
+				animation.addByPrefix('singDOWN', 'Hex crazy down', 24, false);
+				animation.addByPrefix('singLEFT', 'Hex crazy left', 24, false);
+
+				playAnim('idle');
 		}
 
 		dance();
