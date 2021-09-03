@@ -4545,40 +4545,49 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
+		if(curSong.toLowerCase() == 'dad battle')
+			{
+				if(curStep == 992)
+					{
+						remove(dad); // remove whatever character exists
+						dad = new Character(dad.x, dad.y, 'whittyCrazy'); // replace them with another
+						add(dad); // add new character
+					}
+			}
 		// philly uses a lot of different characters,
 		// so y values are adjusted to fit them onto the ground somewhat nicely
 		// could easily just not do this but w/e
-		if (curSong.toLowerCase() == 'philly nice') { // if the song is philly
+		else if (curSong.toLowerCase() == 'philly nice') { // if the song is philly
 			switch (curStep) { // wait for a certain step
-			case 96:
-				remove(dad); // remove whatever character exists
-				dad = new Character(dad.x, dad.y - 300, 'whitty'); // replace them with another -- -300
-				add(dad); // add new character
-			case 160:
-				remove(dad); // remove whatever character exists
-				dad = new Character(dad.x, dad.y + 200, 'spooky'); // replace them with another -- -100
-				add(dad); // add new character
-			case 416:
-				remove(dad); // remove whatever character exists
-				dad = new Character(dad.x, dad.y + 100, 'pico'); // replace them with another -- 0
-				add(dad); // add new character
-			case 672:
-				remove(dad); // remove whatever character exists
-				dad = new Character(dad.x, dad.y - 300, 'dad'); // replace them with another -- -300
-				add(dad); // add new character
-			case 800:
-				remove(dad); // remove whatever character exists
-				dad = new Character(dad.x, dad.y + 300, 'pico'); // replace them with another -- 0
-				add(dad); // add new character
-			case 928:
-				remove(dad);
-				// hex needs to be moved towards bf because of sprite placements
-				dad = new Character(dad.x + 100, dad.y - 200, 'hexvirus');
-				add(dad);
+				case 96:
+					remove(dad); // remove whatever character exists
+					dad = new Character(dad.x, dad.y - 300, 'whitty'); // replace them with another -- -300
+					add(dad); // add new character
+				case 160:
+					remove(dad); // remove whatever character exists
+					dad = new Character(dad.x, dad.y + 200, 'spooky'); // replace them with another -- -100
+					add(dad); // add new character
+				case 416:
+					remove(dad); // remove whatever character exists
+					dad = new Character(dad.x, dad.y + 100, 'pico'); // replace them with another -- 0
+					add(dad); // add new character
+				case 672:
+					remove(dad); // remove whatever character exists
+					dad = new Character(dad.x, dad.y - 300, 'dad'); // replace them with another -- -300
+					add(dad); // add new character
+				case 800:
+					remove(dad); // remove whatever character exists
+					dad = new Character(dad.x, dad.y + 300, 'pico'); // replace them with another -- 0
+					add(dad); // add new character
+				case 928:
+					remove(dad);
+					// hex needs to be moved towards bf because of sprite placements
+					dad = new Character(dad.x + 100, dad.y - 200, 'hexvirus');
+					add(dad);
 			}
 		}
 		// swap pico out for the spooky kids during their section in blammed
-		if (curSong.toLowerCase() == 'blammed') { // if the song is blammed
+		else if (curSong.toLowerCase() == 'blammed') { // if the song is blammed
 			switch (curStep) { // wait for a certain step
 			case 383:
 				remove(dad); // remove whatever character exists
