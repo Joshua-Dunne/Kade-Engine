@@ -380,6 +380,8 @@ class Character extends FlxSprite
 				playAnim('idle');
 			
 			// next 2 characters are for philly nice jokes lol funny
+
+			// thank you whitty mod for being public access
 			case 'whitty': // whitty reg (lofight,overhead)
 				frames = Paths.getSparrowAtlas('WhittySprites', 'shared', true);
 				animation.addByPrefix('idle', 'Idle', 24, false);
@@ -388,9 +390,13 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWN', 'Sing Down', 24, false);
 				animation.addByPrefix('singLEFT', 'Sing Left', 24, false);
 
+				// moved the offsets to a file so I could re-use this function :)
+				loadOffsetFile(curCharacter);
+
 				playAnim('idle');
-				
-			case 'hexvirus': // hexvirus
+
+			case 'hexvirus': // glitcher hex sprites wew
+				// rest in peace public hex mod repo
 				frames = Paths.getSparrowAtlas('Hex_Virus', 'shared', true);
 				animation.addByPrefix('idle', 'Hex crazy idle', 24, false);
 				animation.addByPrefix('singUP', 'Hex crazy up', 24, false);
