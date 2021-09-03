@@ -378,6 +378,27 @@ class Character extends FlxSprite
 				loadOffsetFile(curCharacter);
 
 				playAnim('idle');
+			
+			// next 2 characters are for philly nice jokes lol funny
+			case 'whitty': // whitty reg (lofight,overhead)
+				frames = Paths.getSparrowAtlas('WhittySprites', 'shared', true);
+				animation.addByPrefix('idle', 'Idle', 24, false);
+				animation.addByPrefix('singUP', 'Sing Up', 24, false);
+				animation.addByPrefix('singRIGHT', 'Sing Right', 24, false);
+				animation.addByPrefix('singDOWN', 'Sing Down', 24, false);
+				animation.addByPrefix('singLEFT', 'Sing Left', 24, false);
+
+				playAnim('idle');
+				
+			case 'hexvirus': // hexvirus
+				frames = Paths.getSparrowAtlas('Hex_Virus', 'shared', true);
+				animation.addByPrefix('idle', 'Hex crazy idle', 24, false);
+				animation.addByPrefix('singUP', 'Hex crazy up', 24, false);
+				animation.addByPrefix('singRIGHT', 'Hex crazy right', 24, false);
+				animation.addByPrefix('singDOWN', 'Hex crazy down', 24, false);
+				animation.addByPrefix('singLEFT', 'Hex crazy left', 24, false);
+
+				playAnim('idle');
 		}
 
 		dance();
