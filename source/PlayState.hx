@@ -289,6 +289,8 @@ class PlayState extends MusicBeatState
 
 	public static var startTime = 0.0;
 
+	public var charactersForSong:Array<Character> = [];
+
 	// API stuff
 
 	public function addObject(object:FlxBasic)
@@ -1037,6 +1039,27 @@ class PlayState extends MusicBeatState
 		FlxG.keys.preventDefaultKeys = [];
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, handleInput);
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, releaseInput);
+
+		// ok now that all that junk is done
+		// haha jonathan you are creating new characters
+
+		if (curSong.toLowerCase() == "dadbattle")
+		{
+			charactersForSong.push(new Character(dad.x, dad.y, 'whittyCrazy'));
+		}
+		else if (curSong.toLowerCase() == 'philly')
+		{
+			charactersForSong.push(new Character(dad.x, dad.y, 'pico')); // pico is first character so we can just re-use later
+			charactersForSong.push(new Character(dad.x, dad.y - 300, 'whitty'));
+			charactersForSong.push(new Character(dad.x, dad.y - 100, 'spooky'));
+			charactersForSong.push(new Character(dad.x, dad.y - 300, 'dad'));
+			charactersForSong.push(new Character(dad.x, dad.y - 300, 'hexvirus'));
+		}
+		else if (curSong.toLowerCase() == 'blammed')
+		{
+			charactersForSong.push(new Character(dad.x, dad.y, 'pico')); // pico added as first so we can go back after
+			charactersForSong.push(new Character(dad.x, dad.y - 100, 'spooky'));
+		}
 		super.create();
 	}
 
@@ -4415,64 +4438,68 @@ class PlayState extends MusicBeatState
 			luaModchart.executeState('stepHit', [curStep]);
 		}
 		#end
-
-		// TODO: retool this later lol
-		/*
-			if(curSong.toLowerCase() == 'dad battle')
+		if (charactersForSong.length > 0)
+		{ // only attempt character swaps if there's actually character to swap to
+			if (curSong.toLowerCase() == 'dadbattle')
+			{
+				if (curStep == 992)
 				{
-					if(curStep == 992)
-						{
-							remove(dad); // remove whatever character exists
-							dad = new Character(dad.x, dad.y, 'whittyCrazy'); // replace them with another
-							add(dad); // add new character
-						}
+					remove(dad); // remove whatever character exists
+					dad = charactersForSong[0]; // replace them with another
+					add(dad); // add new character
 				}
-			// philly uses a lot of different characters,
-			// so y values are adjusted to fit them onto the ground somewhat nicely
+			}
+				// philly uses a lot of different characters,
+				// so y values are adjusted to fit them onto the ground somewhat nicely
 			// could easily just not do this but w/e
-			else if (curSong.toLowerCase() == 'philly nice') { // if the song is philly
-				switch (curStep) { // wait for a certain step
+			else if (curSong.toLowerCase() == 'philly')
+			{ // if the song is philly
+				switch (curStep)
+				{ // wait for a certain step
 					case 96:
 						remove(dad); // remove whatever character exists
-						dad = new Character(dad.x, dad.y - 300, 'whitty'); // replace them with another -- -300
+						dad = charactersForSong[1];
 						add(dad); // add new character
 					case 160:
 						remove(dad); // remove whatever character exists
-						dad = new Character(dad.x, dad.y + 200, 'spooky'); // replace them with another -- -100
+						dad = charactersForSong[2];
 						add(dad); // add new character
 					case 416:
 						remove(dad); // remove whatever character exists
-						dad = new Character(dad.x, dad.y + 100, 'pico'); // replace them with another -- 0
+						dad = charactersForSong[0];
 						add(dad); // add new character
 					case 672:
 						remove(dad); // remove whatever character exists
-						dad = new Character(dad.x, dad.y - 300, 'dad'); // replace them with another -- -300
+						dad = charactersForSong[3];
 						add(dad); // add new character
 					case 800:
 						remove(dad); // remove whatever character exists
-						dad = new Character(dad.x, dad.y + 300, 'pico'); // replace them with another -- 0
+						dad = charactersForSong[0];
 						add(dad); // add new character
 					case 928:
 						remove(dad);
 						// hex needs to be moved towards bf because of sprite placements
-						dad = new Character(dad.x + 100, dad.y - 200, 'hexvirus');
+						dad = charactersForSong[4];
 						add(dad);
 				}
 			}
 			// swap pico out for the spooky kids during their section in blammed
-			else if (curSong.toLowerCase() == 'blammed') { // if the song is blammed
-				switch (curStep) { // wait for a certain step
-				case 383:
-					remove(dad); // remove whatever character exists
-					dad = new Character(dad.x, dad.y - 100, 'spooky'); // replace them with spooky kids
-					// -100 on .y is to re-adjust original dad position so they fit on screen better
-					add(dad); // add spooky kids
-				case 512: // code is more or less the same below, except for the +100 on .y to put pico back
-					remove(dad);
-					dad = new Character(dad.x, dad.y + 100, 'pico');
-					add(dad);
+			else if (curSong.toLowerCase() == 'blammed')
+			{ // if the song is blammed
+				switch (curStep)
+				{ // wait for a certain step
+					case 383:
+						remove(dad); // remove whatever character exists
+						dad = charactersForSong[1]; // replace them with spooky kids
+						// -100 on .y is to re-adjust original dad position so they fit on screen better
+						add(dad); // add spooky kids
+					case 512: // code is more or less the same below, except for the +100 on .y to put pico back
+						remove(dad);
+						dad = charactersForSong[0];
+						add(dad);
 				}
-		}*/
+			}
+		}
 	}
 
 	override function beatHit()

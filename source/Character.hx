@@ -402,6 +402,8 @@ class Character extends FlxSprite
 				// moved the offsets to a file so I could re-use this function :)
 				loadOffsetFile(curCharacter);
 
+				playAnim('idle');
+
 			// next 2 characters are for philly nice jokes lol funny
 			case 'whitty': // whitty reg (lofight,overhead)
 				frames = Paths.getSparrowAtlas('WhittySprites', 'shared', true);

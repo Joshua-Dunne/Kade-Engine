@@ -126,19 +126,9 @@ class FreeplayState extends MusicBeatState
 		}
 		#end
 
-		// trace("\n" + diffList);
-
-		/* 
-			if (FlxG.sound.music != null)
-			{
-				if (!FlxG.sound.music.playing)
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
-			}
-		 */
-
-		#if desktop
+		#if FEATURE_DISCORD
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Taking a Shit", null);
+		DiscordClient.changePresence("In the Freeplay Menu", null);
 		#end
 
 		var isDebug:Bool = false;
@@ -347,6 +337,14 @@ class FreeplayState extends MusicBeatState
 			{
 				changeSelection(1);
 			}
+			if (gamepad.justPressed.DPAD_LEFT)
+			{
+				changeDiff(-1);
+			}
+			if (gamepad.justPressed.DPAD_RIGHT)
+			{
+				changeDiff(1);
+			}
 
 			// if (gamepad.justPressed.X && !openedPreview)
 			// openSubState(new DiffOverview());
@@ -395,6 +393,13 @@ class FreeplayState extends MusicBeatState
 			}
 
 			previewtext.text = "Rate: " + FlxMath.roundDecimal(rate, 2) + "x";
+		}
+		else
+		{
+			if (FlxG.keys.justPressed.LEFT)
+				changeDiff(-1);
+			if (FlxG.keys.justPressed.RIGHT)
+				changeDiff(1);
 		}
 
 		#if cpp
@@ -514,7 +519,7 @@ class FreeplayState extends MusicBeatState
 		if (!songs[curSelected].diffs.contains(CoolUtil.difficultyFromInt(curDifficulty + change)))
 			return;
 
-		curDifficulty = 1;
+		curDifficulty += change;
 
 		if (curDifficulty < 0)
 			curDifficulty = 2;

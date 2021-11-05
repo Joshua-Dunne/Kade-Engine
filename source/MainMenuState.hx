@@ -27,7 +27,7 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
 	#if !switch
-	var optionShit:Array<String> = ['story mode', 'freeplay', 'put', 'options'];
+	var optionShit:Array<String> = ['story mode', 'freeplay', 'donate', 'options'];
 	#else
 	var optionShit:Array<String> = ['story mode', 'freeplay'];
 	#end
@@ -54,7 +54,7 @@ class MainMenuState extends MusicBeatState
 		PlayState.inDaPlay = false;
 		#if FEATURE_DISCORD
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Saving Potato Art", null);
+		DiscordClient.changePresence("In the Menus", null);
 		#end
 
 		if (!FlxG.sound.music.playing)
@@ -185,9 +185,9 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.ACCEPT)
 			{
-				if (optionShit[curSelected] == 'put')
+				if (optionShit[curSelected] == 'donate')
 				{
-					FlxG.sound.play(Paths.sound('put'));
+					fancyOpenURL("https://ninja-muffin24.itch.io/funkin");
 				}
 				else
 				{
