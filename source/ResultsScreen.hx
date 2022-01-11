@@ -53,6 +53,16 @@ class ResultsScreen extends FlxSubState
 	public var ranking:String;
 	public var accuracy:String;
 
+	var wackySoloResults:Array<String> = [
+		"Hands Cleaned!", "Jesus Finally",  "Glad That's Over",       "Let's Never Play That Again",
+		          "6 AM",  "Bob says Hi!", "Your Results, Sir", "Number 15: Burger King Foot Lettuce"
+	];
+
+	var wackyWeekResults:Array<String> = [
+		"I Love You Kitchen Gun!", "It's Been One Week Since You Looked At Me",     "FNAF Week Completed!",      "Weekly Report Card",
+		     "Another Week Down.",  "I'm Never Playing The Entire Thing Again", "Song Two Was Pretty Good", "It's Funky Monkey Friday!"
+	];
+
 	override function create()
 	{
 		background = new FlxSprite(0, 0).makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
@@ -69,7 +79,7 @@ class ResultsScreen extends FlxSubState
 
 		background.alpha = 0;
 
-		text = new FlxText(20, -55, 0, "Hands Cleaned!");
+		text = new FlxText(20, -55, 0, "e");
 		text.size = 34;
 		text.setBorderStyle(FlxTextBorderStyle.OUTLINE, FlxColor.BLACK, 4, 1);
 		text.color = FlxColor.WHITE;
@@ -80,7 +90,11 @@ class ResultsScreen extends FlxSubState
 		if (PlayState.isStoryMode)
 		{
 			score = PlayState.campaignScore;
-			text.text = "I love you Kitchen Gun!";
+			text.text = FlxG.random.getObject(wackyWeekResults); // randomly pick from weekly funnies
+		}
+		else
+		{
+			text.text = FlxG.random.getObject(wackySoloResults); // if it was a solo song, pick from solo funnies
 		}
 
 		var sicks = PlayState.isStoryMode ? PlayState.campaignSicks : PlayState.sicks;

@@ -428,6 +428,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singLEFT', 'Hex crazy left', 24, false);
 
 				playAnim('idle');
+			case 'funky':
+				frames = Paths.getSparrowAtlas('funky', 'shared', true);
+				animation.addByPrefix('idle', 'funky idle', 24, false);
+				animation.addByPrefix('singUP', 'funky up', 24, false);
+				animation.addByPrefix('singLEFT', 'funky left', 24, false);
+				animation.addByPrefix('singRIGHT', 'funky right', 24, false);
+				animation.addByPrefix('singDOWN', 'funky down', 24, false);
+
+				barColor = 0x0000ffff;
+				playAnim('idle');
 			default:
 				parseDataFile();
 		}

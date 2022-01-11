@@ -519,7 +519,7 @@ class FreeplayState extends MusicBeatState
 		if (!songs[curSelected].diffs.contains(CoolUtil.difficultyFromInt(curDifficulty + change)))
 			return;
 
-		curDifficulty += change;
+		curDifficulty = 1; // nah you staying on normal lol #rekt
 
 		if (curDifficulty < 0)
 			curDifficulty = 2;

@@ -907,7 +907,7 @@ class PlayState extends MusicBeatState
 		judgementCounter.scrollFactor.set();
 		judgementCounter.cameras = [camHUD];
 		judgementCounter.screenCenter(Y);
-		judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${misses}';
+		judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nFuck-Ups: ${misses}';
 		if (FlxG.save.data.judgementCounter)
 		{
 			add(judgementCounter);
@@ -1046,6 +1046,11 @@ class PlayState extends MusicBeatState
 		if (curSong.toLowerCase() == "dadbattle")
 		{
 			charactersForSong.push(new Character(dad.x, dad.y, 'whittyCrazy'));
+		}
+		else if (curSong.toLowerCase() == "poopeez") // TODO: remove me lol maybe
+		{
+			charactersForSong.push(new Character(dad.x, dad.y, 'spooky'));
+			charactersForSong.push(new Character(dad.x, dad.y, 'funky'));
 		}
 		else if (curSong.toLowerCase() == 'philly')
 		{
@@ -1501,7 +1506,7 @@ class PlayState extends MusicBeatState
 			+ HelperFunctions.truncateFloat(accuracy, 2)
 			+ "% | Score: "
 			+ songScore
-			+ " | Misses: "
+			+ " | Fuck-ups: "
 			+ misses, iconRPC);
 		#end
 
@@ -1916,7 +1921,7 @@ class PlayState extends MusicBeatState
 				+ HelperFunctions.truncateFloat(accuracy, 2)
 				+ "% | Score: "
 				+ songScore
-				+ " | Misses: "
+				+ " | Fuck-ups: "
 				+ misses, iconRPC);
 			#end
 			if (!startTimer.finished)
@@ -1966,7 +1971,7 @@ class PlayState extends MusicBeatState
 					+ HelperFunctions.truncateFloat(accuracy, 2)
 					+ "% | Score: "
 					+ songScore
-					+ " | Misses: "
+					+ " | Fuck-ups: "
 					+ misses, iconRPC, true,
 					songLength
 					- Conductor.songPosition);
@@ -2013,7 +2018,7 @@ class PlayState extends MusicBeatState
 			+ HelperFunctions.truncateFloat(accuracy, 2)
 			+ "% | Score: "
 			+ songScore
-			+ " | Misses: "
+			+ " | Fuck-ups: "
 			+ misses, iconRPC);
 		#end
 	}
@@ -2850,7 +2855,7 @@ class PlayState extends MusicBeatState
 					+ HelperFunctions.truncateFloat(accuracy, 2)
 					+ "% | Score: "
 					+ songScore
-					+ " | Misses: "
+					+ " | Fuck-ups: "
 					+ misses, iconRPC);
 				#end
 				// God i love futabu!! so fucking much (From: McChomk)
@@ -2895,7 +2900,7 @@ class PlayState extends MusicBeatState
 					+ HelperFunctions.truncateFloat(accuracy, 2)
 					+ "% | Score: "
 					+ songScore
-					+ " | Misses: "
+					+ " | Fuck-ups: "
 					+ misses, iconRPC);
 				#end
 
@@ -4251,7 +4256,7 @@ class PlayState extends MusicBeatState
 		accuracyDefault = Math.max(0, totalNotesHitDefault / totalPlayed * 100);
 
 		scoreTxt.text = Ratings.CalculateRanking(songScore, songScoreDef, nps, maxNPS, accuracy);
-		judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${misses}';
+		judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nFuck-ups: ${misses}';
 	}
 
 	function getKeyPresses(note:Note):Int
@@ -4446,6 +4451,15 @@ class PlayState extends MusicBeatState
 				{
 					remove(dad); // remove whatever character exists
 					dad = charactersForSong[0]; // replace them with another
+					add(dad); // add new character
+				}
+			}
+			else if (curSong.toLowerCase() == 'poopeez')
+			{
+				if (curStep == 16)
+				{
+					remove(dad); // remove whatever character exists
+					dad = charactersForSong[1]; // replace them with another
 					add(dad); // add new character
 				}
 			}
